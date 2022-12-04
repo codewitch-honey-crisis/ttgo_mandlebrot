@@ -55,7 +55,7 @@ void setup() {
     button_1.initialize();
     button_2.initialize();
     button_1.callback(button_1_cb);
-    button_2.callback(button_1_cb);
+    button_2.callback(button_2_cb);
     draw::filled_rectangle(dsp, dsp.bounds(), color_t::black);
 }
 void loop() {

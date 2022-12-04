@@ -4,7 +4,7 @@
 #include <htcw_button.hpp>
 #include <st7789.hpp>
 #include <tft_io.hpp>
-
+#include <fonts/Ubuntu.hpp>
 #define LCD_WIDTH 135
 #define LCD_HEIGHT 240
 #define LCD_HOST VSPI
@@ -57,6 +57,20 @@ void setup() {
     button_1.callback(button_1_cb);
     button_2.callback(button_2_cb);
     draw::filled_rectangle(dsp, dsp.bounds(), color_t::black);
+    
+    open_text_info oti;
+    oti.font = &Ubuntu;
+    oti.text = "Mandelbrot";
+    // 25 pixel high font
+    oti.scale = oti.font->scale(25);
+    // center the text
+    ssize16 text_size = oti.font->measure_text(ssize16::max(),spoint16::zero(),oti.text,oti.scale);
+    srect16 text_rect = text_size.bounds();
+    text_rect.center_inplace((srect16)dsp.bounds());
+    draw::text(dsp,text_rect,oti,color_t::purple);
+    delay(2000);
+    
+    //draw::text(dsp,)
 }
 void loop() {
     int64_t n, a, b, a2, b2, posReal, posImag;

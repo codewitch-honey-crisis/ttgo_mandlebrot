@@ -85,7 +85,7 @@ void loop() {
 
     startTime = millis();
     posImag = startImag;
-    auto bt = draw::batch_async(dsp, dsp.bounds());
+    auto bt = draw::batch(dsp, dsp.bounds());
     for (int y = 0; y < dsp.dimensions().height; y++) {
         posReal = startReal;
         for (int x = 0; x < dsp.dimensions().width; x++) {

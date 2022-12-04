@@ -21,7 +21,7 @@ using namespace std;
 using bus_t = tft_spi_ex<LCD_HOST, PIN_NUM_CS, PIN_NUM_MOSI, PIN_NUM_MISO, PIN_NUM_CLK, SPI_MODE0,true,LCD_WIDTH*LCD_HEIGHT*2,2>;
 using display_t = st7789<LCD_WIDTH, LCD_HEIGHT, PIN_NUM_DC, PIN_NUM_RST, PIN_NUM_BCKL, bus_t, 0, true, 400, 200>;
 using color_t = color<typename display_t::pixel_type>;
-using fix_t = float;  // SFixed<12,19>;
+
 using button_1_t = button<35, 10, true>;
 using button_2_t = button<0, 10, true>;
 using rgb_t = rgb_pixel<24>;

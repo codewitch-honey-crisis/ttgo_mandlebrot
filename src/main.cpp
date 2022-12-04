@@ -57,10 +57,11 @@ void setup() {
     button_1.callback(button_1_cb);
     button_2.callback(button_2_cb);
     draw::filled_rectangle(dsp, dsp.bounds(), color_t::black);
-    
+
     open_text_info oti;
     oti.font = &Ubuntu;
     oti.text = "Mandelbrot";
+    oti.transparent_background = false;
     // 25 pixel high font
     oti.scale = oti.font->scale(25);
     // center the text

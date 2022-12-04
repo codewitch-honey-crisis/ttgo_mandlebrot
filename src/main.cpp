@@ -44,8 +44,18 @@ float
     rangeImag(3.0),
     incRange(.95);
 
+static void button_1_cb(bool pressed, void* state) {
+    Serial.printf("Button 1 %s\n",pressed?"pressed":"released");
+}
+static void button_2_cb(bool pressed, void* state) {
+    Serial.printf("Button 2 %s\n",pressed?"pressed":"released");
+}
 void setup() {
     Serial.begin(115200);
+    button_1.initialize();
+    button_2.initialize();
+    button_1.callback(button_1_cb);
+    button_2.callback(button_1_cb);
     draw::filled_rectangle(dsp, dsp.bounds(), color_t::black);
 }
 void loop() {
@@ -90,4 +100,7 @@ void loop() {
 
     rangeReal *= incRange;
     rangeImag *= incRange;
+
+    button_1.update();
+    button_2.update();
 }

@@ -4,7 +4,7 @@
 #include <htcw_button.hpp>
 #include <st7789.hpp>
 #include <tft_io.hpp>
-//#include <FixedPoints.h>
+
 #define LCD_WIDTH 135
 #define LCD_HEIGHT 240
 #define LCD_HOST VSPI
